@@ -1,2 +1,1 @@
-# ICAapi
-Python wrapper for ICA shopping list API
+# hass_ica
