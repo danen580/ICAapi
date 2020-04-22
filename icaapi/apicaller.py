@@ -1,5 +1,4 @@
 
-import json
 import requests
 
 
@@ -17,26 +16,12 @@ from .const import (
     STORE
 )
 
-def auth_key_read(user, psw):
-    try:
-        with open(STORE, 'r') as myfile:
-            auth = json.load(myfile)
-            if (auth["user"] == user and auth["psw"] == psw):
-                return auth["auth"]
-            else:
-                return None
-    except FileNotFoundError:
-        return None
-
 
 def get_auth_key(user, psw):
     url = AUTH_URL
     auth = (user, psw)
     response = requests.get(url, auth = auth)
     if response:
-        write = {"user": user, "psw": psw, "auth": response.headers[AUTH_TICKET]}
-        with open(STORE, "w") as myfile:
-            json.dump(write,myfile)
         return response.headers[AUTH_TICKET]
     return None
 
@@ -52,9 +37,7 @@ def get_shopping_list(auth_key):
 class ICAapi:
     ### Class to retrieve and hold the data for a Shopping list from ICA ###
     def __init__(self, user, psw):
-        self._auth_key = auth_key_read(user, psw)
-        if(self._auth_key == None):
-            self._auth_key = get_auth_key(user, psw)
+        self._auth_key = get_auth_key(user, psw)
         self._raw_shopping_list = get_shopping_list(self._auth_key).get(GET_LISTS)
 
     @property

@@ -18,5 +18,3 @@ IS_CHECKED = "IsStrikedOver"
 
 AUTH_URL = "https://handla.api.ica.se/api/login"
 SHOPPING_URL = "https://handla.api.ica.se/api/user/shoppinglists"
-
-STORE = "auth_key.json"
