@@ -11,3 +11,6 @@ Example
     ICAapi.items #return all unchecked items in all shoppinglists
     ICAapi.lists #returns the names of all the shopping lists you have
     ICAapi.items_in_list(list_name) #returns all the items of that specified shopping list
+
+
+Based on the great work to map out the api by [ica-api](https://github.com/svendahlstrand/ica-api)
