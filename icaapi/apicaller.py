@@ -12,8 +12,7 @@ from .const import (
     AUTH_URL,
     SHOPPING_URL,
     GET_LISTS,
-    IS_CHECKED,
-    STORE
+    IS_CHECKED
 )
 
 
